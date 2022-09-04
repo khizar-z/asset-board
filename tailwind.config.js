@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       fontFamily: {
         'grotesk': ['Space Grotesk', 'sans-serif'],
+        'questrial': ['Questrial', 'sans-serif'],
+        'avenirroman': ['AvenirLTStd-Roman', 'sans-serif'],
+        'avenirbook': ['AvenirLTStd-Book', 'sans-serif'],
       }
     },
   },

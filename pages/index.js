@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-
 export default function Home() {
   return (
-    <h1 className='font-grotesk'>the board</h1>
+    <div>
+    <h1 className="font-grotesk">the board</h1>
+    <h2 className="font-questrial">Right</h2>
+    </div>
   )
 }

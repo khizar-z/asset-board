@@ -2,16 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   color: #202020
 }
-
 
 html {
   background-color: #F7F5EE
 }
 
-h1 {
-  font-family: 'Space Grotesk';
+@font-face {
+  font-family: "AvenirLTStd-Book";
+  src: url("/fonts/AvenirLTStd-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Roman";
+  src: url("/fonts/AvenirLTStd-Roman.otf") format("opentype");
 }
