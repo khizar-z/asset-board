@@ -1,8 +1,16 @@
+import axios from "axios"
+import BoardContainer from "../components/BoardContainer"
+
+async function getBoard() {
+  const board = await axios.get("/api/updateboard")
+  console.log(board.data)
+  return board.data
+}
+
 export default function Home() {
   return (
     <div>
-    <h1 className="font-grotesk">the board</h1>
-    <h2 className="font-questrial">Right</h2>
+      <BoardContainer articles={getBoard().articles}/>
     </div>
   )
 }
