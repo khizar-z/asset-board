@@ -1,41 +1,48 @@
-import * as firebaseAdmin from 'firebase-admin';
+import { initializeApp, applicationDefault, cert } from 'firebase-admin/app';
+import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore';
+import { resolve } from 'styled-jsx/css';
+const admin = require('firebase-admin');
 
-const credential = firebaseAdmin.credential.cert(
-  JSON.parse(process.env.FIREBASE_CREDENTIALS)
-);
+const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS);
 
-firebaseAdmin.initializeApp({
-  credential,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-});
+if (admin.apps.length === 0) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: process.env.FIREBASE_DATABASE_URL,
+  });
+}
+
+const db = getFirestore();
+/* db.collection('boards').doc('1').get().then(r => {
+  console.log(r)
+}) */
 
 async function getBoard(req, res) {
-  const boardId = req.query.boardId;
+  const boardId = await req.query.boardId;
 
   let boardRef;
   if (!boardId) {
-    const boardRef = db.collection('boards').where('current', '==', true)
+    boardRef = db.collection('boards').where('current', '==', true)
   } else {
-    const boardRef = db.collection('boards').where(firebase.firestore.FieldPath.documentId(), '==', boardId)
-    if (!boardRef) {
-      res.status(404).json({ error: 'Board not found' });
-      return;
+    boardRef = db.collection('boards').doc(boardId)
+    if (boardRef.empty) {
+      return await res.status(404).json({ error: 'Board not found' });
     }
   }
 
-  const db = firebaseAdmin.firestore();
 
-  const board = await boardRef.get();
-  try {
-    await res.status(200).send(board.data());
-  } catch (error) {
-    await res.status(500).send(error);
-  }
+  return boardRef.get().then((board) => {
+    return res.status(200).send(board.docs[0].data());
+  }).catch((err) => {
+    return res.status(500).send({ error: err });
+  });
 }
 
-export default function handler(req, res) {
-  if (req.method === 'GET') { 
-    getBoard(req, res);
-    return;
-  }
+export default async function handler(req, res) {
+  return new Promise((resolve) => {
+    if (req.method === 'GET') { 
+      getBoard(req, res);
+      return resolve();
+    }
+  });
 }
