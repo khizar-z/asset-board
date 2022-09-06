@@ -1,4 +1,8 @@
+import React, { useState } from 'react';
+
 export default function Admin() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div>
       <h1 className="font-grotesk">Admin</h1>
