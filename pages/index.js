@@ -1,23 +1,28 @@
 import axios from "axios"
 import BoardContainer from "../components/BoardContainer"
-import { server } from "../config"
+import { useEffect, useState } from "react"
 
-export default function Home({ boardData }) {
+export default function Home(props) {
+  const [boardData, setBoardData] = useState(null)
+  const [isLoading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch('/api/updateboard')
+      .then((res) => res.json())
+      .then((data) => {
+        setBoardData(data)
+        setLoading(false)
+      })
+  }, [])
+
+  if (isLoading) return <p>Loading...</p>
+  if (!boardData) return <p>No profile data</p>
+
   return (
     <div>
       <h1 className="font-grotesk">{boardData.topicName}</h1>
       <BoardContainer articles={boardData.articles} />
     </div>
   )
-}
-
-export async function getStaticProps() { 
-  const board = await fetch(server, { method: 'GET' });
-  const boardData = await board.json();
-
-  return {
-    props: {
-      boardData
-    }
-  }
 }
