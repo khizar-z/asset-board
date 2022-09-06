@@ -1,5 +1,6 @@
 import axios from "axios"
 import BoardContainer from "../components/BoardContainer"
+import { server } from "../config"
 
 export default function Home({ boardData }) {
   return (
@@ -11,7 +12,7 @@ export default function Home({ boardData }) {
 }
 
 export async function getStaticProps() { 
-  const board = await fetch('http://localhost:3000/api/updateboard', { method: 'GET' });
+  const board = await fetch(server, { method: 'GET' });
   const boardData = await board.json();
 
   return {
