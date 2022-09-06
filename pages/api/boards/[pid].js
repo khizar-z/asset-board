@@ -1,6 +1,5 @@
 import { initializeApp, applicationDefault, cert } from 'firebase-admin/app';
 import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore';
-import { resolve } from 'styled-jsx/css';
 const admin = require('firebase-admin');
 
 const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS);
@@ -18,21 +17,16 @@ const db = getFirestore();
 }) */
 
 async function getBoard(req, res) {
-  const boardId = await req.query.boardId;
+  const { pid } = req.query;
+  let boardRef = db.collection('boards').doc(pid)
 
-  let boardRef;
-  if (!boardId) {
-    boardRef = db.collection('boards').where('current', '==', true)
-  } else {
-    boardRef = db.collection('boards').doc(boardId)
-    if (boardRef.empty) {
-      return await res.status(404).json({ error: 'Board not found' });
-    }
+  if (!boardRef) {
+    return await res.status(404).json({ error: 'Board not found' });
   }
 
 
   return boardRef.get().then((board) => {
-    return res.status(200).send(board.docs[0].data());
+    return res.status(200).send(board.data());
   }).catch((err) => {
     return res.status(500).send({ error: err });
   });
