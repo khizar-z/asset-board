@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 export default function Home(props) {
   const [boardData, setBoardData] = useState(null)
   const [isLoading, setLoading] = useState(false)
-
+// This is a commit test.
   useEffect(() => {
     setLoading(true)
     fetch('/api/boards')
