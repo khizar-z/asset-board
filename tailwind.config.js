@@ -11,6 +11,7 @@ module.exports = {
         'questrial': ['Questrial', 'sans-serif'],
         'avenirroman': ['AvenirLTStd-Roman', 'sans-serif'],
         'avenirbook': ['AvenirLTStd-Book', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
       }
     },
   },

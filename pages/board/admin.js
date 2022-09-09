@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Head } from "next/head";
 
 export default function Admin() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -6,6 +7,9 @@ export default function Admin() {
   if (!loggedIn) { 
     return (
       <div>
+        <Head>
+          <title>ASSET - Admin</title>
+        </Head>
         <h1>Admin</h1>
         <form>
           <label htmlFor="password">Password</label>

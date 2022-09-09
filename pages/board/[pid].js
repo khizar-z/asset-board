@@ -2,6 +2,7 @@ import axios from "axios"
 import BoardContainer from "../../components/BoardContainer"
 import { useEffect, useState } from "react"
 import { useRouter } from 'next/router'
+import { Head } from "next/head";
 
 export default function DynamicHome(props) {
   const router = useRouter()
@@ -28,6 +29,9 @@ export default function DynamicHome(props) {
 
   return (
     <div>
+      <Head>
+        <title>ASSET - Board</title>
+      </Head>
       <h1 className="font-grotesk">{boardData.topicName}</h1>
       <BoardContainer articles={boardData.articles} />
     </div>
