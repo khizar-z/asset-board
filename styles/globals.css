@@ -10,6 +10,13 @@ html {
   background-color: #F7F5EE
 }
 
+.divider {
+  display: inline-block;
+  width: 2px;
+  background-color: black;
+  height: 6.5em;
+}
+
 @font-face {
   font-family: "AvenirLTStd-Book";
   src: url("/fonts/AvenirLTStd-Book.otf") format("opentype");
@@ -18,4 +25,9 @@ html {
 @font-face {
   font-family: "AvenirLTStd-Roman";
   src: url("/fonts/AvenirLTStd-Roman.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir Light";
+  src: url("/fonts/Avenir Light.ttf") format("truetype");
 }

@@ -1,7 +1,7 @@
 import axios from "axios"
 import BoardContainer from "../../components/BoardContainer"
 import { useEffect, useState } from "react"
-import { Head } from "next/head";
+import Head from "next/head";
 
 export default function BoardHome(props) {
   const [boardData, setBoardData] = useState(null)

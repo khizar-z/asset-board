@@ -12,6 +12,7 @@ module.exports = {
         'avenirroman': ['AvenirLTStd-Roman', 'sans-serif'],
         'avenirbook': ['AvenirLTStd-Book', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
+        'avenirlight': ['Avenir Light'],
       }
     },
   },

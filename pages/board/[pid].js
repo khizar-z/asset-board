@@ -2,7 +2,7 @@ import axios from "axios"
 import BoardContainer from "../../components/BoardContainer"
 import { useEffect, useState } from "react"
 import { useRouter } from 'next/router'
-import { Head } from "next/head";
+import Head from "next/head";
 
 export default function DynamicHome(props) {
   const router = useRouter()
