@@ -1,13 +1,42 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
+import Link from 'next/link';
+import Image from 'next/image';
+import instagram from '../../public/instagram.svg';
+import linkedin from '../../public/linkedin.svg';
 
 export default function PostPage({ frontmatter, content }) {
   return (
+    <div>
     <div className='prose mx-auto'>
       <h1 className='text-center font-grotesk font-bold mt-10'>{frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
     </div>
+    <div className="flex justify-center mt-24">
+      <div className="flex flex-col">
+        <p className="font-questrial text-2xl mt-16 text-center">Association of Social and Scientifically<br/>Enigmatic Thinkers</p>
+        <div className="flex justify-center mt-5">
+          <div className="mr-5">
+            <Link href="https://instagram.com/association_of_sset/">
+              <a>
+                <Image src={instagram} alt="logo" width="35px" height="35px"/>
+              </a>
+            </Link>
+          </div>
+          <div className="mr-5">
+            <Link href="https://www.linkedin.com/company/association-of-social-and-scientifically-enigmatic-thinkers/">
+              <a>
+                <Image src={linkedin} alt="logo" width="35px" height="35px"/>
+              </a>
+            </Link>
+          </div>
+        </div>
+        <p className="font-questrial text-xl mt-3 mb-8 text-center">associationofsset@gmail.com</p>
+      </div>
+    </div>
+  </div>
+    
   );
 }
 
