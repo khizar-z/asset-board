@@ -18,7 +18,7 @@ export default function Home() {
           <div className="flex flex-col justify-items-start ml-5">
             <h1 className="font-poppins text-9xl m-5 ml-7">A.S.S.E.T.</h1>
             <div className="flex flex-row ml-5">
-              <Link href="/"> 
+              <Link href="/readings/"> 
                 <a className="font-poppins text-3xl m-2">Philosophy & Readings</a> 
               </Link>
               <p className="text-3xl m-2">|</p>
@@ -65,7 +65,7 @@ export default function Home() {
         <div className="flex flex-col">
           <h2 className="font-grotesk text-5xl text-center">RESOURCES</h2>
           <div className="flex mt-20">
-            <Link href="/"> 
+            <Link href="/readings/"> 
               <a className="text-center text-5xl font-avenirlight mx-24">PHILOSOPHY<br/>& RESOURCES</a>
             </Link>
             <div className="divider"></div>
@@ -91,12 +91,16 @@ export default function Home() {
             <div className="flex justify-center mt-5">
               <div className="mr-5">
                 <Link href="https://instagram.com/association_of_sset/">
-                  <Image src={instagram} alt="logo" width="35px" height="35px"/>
+                  <a>
+                    <Image src={instagram} alt="logo" width="35px" height="35px"/>
+                  </a>
                 </Link>
               </div>
               <div className="mr-5">
                 <Link href="https://www.linkedin.com/company/association-of-social-and-scientifically-enigmatic-thinkers/">
-                  <Image src={linkedin} alt="logo" width="35px" height="35px"/>
+                  <a>
+                    <Image src={linkedin} alt="logo" width="35px" height="35px"/>
+                  </a>
                 </Link>
               </div>
             </div>
