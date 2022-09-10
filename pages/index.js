@@ -55,7 +55,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-32">
+      <div className="flex justify-center mt-24">
         <div className="w-2/4">
           <p className="font-avenirlight text-3xl leading-10">​ASSET&apos;s (Association of Social and Scientifically Enigmatic Thinkers) goal is to promote literacy in philosophy and politics, by providing resources and simplifying concepts—while maintaining the meaning—for youth.<br/><br/>We aspire to better the world as a whole, through learning about different viewpoints and ideas, and developing understanding and acceptance for all.</p>
         </div>
@@ -76,7 +76,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-32">
+      <div className="flex justify-center mt-48">
         <div className="w-2/4">
           <div className="flex flex-col">
             <h2 className="font-grotesk text-5xl text-center">OUR GOAL</h2>
