@@ -9,6 +9,9 @@ import linkedin from "../../public/linkedin.svg";
 export default function ReadingsHome({ posts }) {
   return (
     <div className='flex flex-col justify-center items-center w-screen'>
+      <Head>
+        <title>ASSET - Readings</title>
+      </Head>
       <h1 className="font-grotesk text-5xl text-center mt-10">Philosophy & Readings</h1>
       <div className='flex'>
         <Link href='/'>
