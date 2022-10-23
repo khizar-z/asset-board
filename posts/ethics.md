@@ -1,5 +1,5 @@
 ---
-title: 'Ethics'
+title: 'ETHICS'
 metaTitle: 'Ethics'
 metaDesc: 'Ethics article'
 # socialImage: images/22-09-2021.jpg

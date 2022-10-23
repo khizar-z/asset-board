@@ -25,7 +25,7 @@ export default function ReadingsHome({ posts }) {
         <div key={slug} className='border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col w-1/5 mt-5'>
           <Link href={`/readings/${slug}`}>
             <a>
-              <h1 className='p-4 font-questrial text-3xl text-center'>{frontmatter.title}</h1>
+              <h1 className='p-4 font-questrial text-3xl text-center'>{frontmatter.metaTitle}</h1>
             </a>
           </Link>
         </div>

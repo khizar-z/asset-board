@@ -11,7 +11,7 @@ export default function PostPage({ frontmatter, content }) {
   return (
     <div>
       <Head>
-        <title>ASSET - { frontmatter.title }</title>
+        <title>ASSET - { frontmatter.metaTitle }</title>
       </Head>
       <div className='prose mx-auto'>
         <h1 className='text-center font-grotesk font-bold mt-10'>{frontmatter.title}</h1>
